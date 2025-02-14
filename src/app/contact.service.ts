@@ -24,5 +24,10 @@ export class ContactService {
   public addContact(contact: Contact) {
     this.currentId++;
     this.contacts.push({...contact, id: this.currentId})
-  } 
+  }
+  
+  public editContact(updatedContact: Contact) {
+    const index = this.contacts.findIndex((c) => c.id === updatedContact.id);
+    this.contacts[index] = updatedContact;
+  }
 }
